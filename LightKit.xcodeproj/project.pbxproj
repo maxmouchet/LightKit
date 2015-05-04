@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		40CBF4981AF8038E009D40D8 /* LightKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 40CBF4971AF8038E009D40D8 /* LightKit.h */; };
-		40CBF49A1AF8038E009D40D8 /* LightKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CBF4991AF8038E009D40D8 /* LightKit.m */; };
 		40CBF4A01AF8038E009D40D8 /* libLightKit.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CBF4941AF8038E009D40D8 /* libLightKit.dylib */; };
+		40CBF4B01AF8039C009D40D8 /* LMUController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CBF4AF1AF8039C009D40D8 /* LMUController.swift */; };
+		40E197A91AF813EB0030F05A /* LMUControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E197A81AF813EB0030F05A /* LMUControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,10 +24,12 @@
 
 /* Begin PBXFileReference section */
 		40CBF4941AF8038E009D40D8 /* libLightKit.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libLightKit.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		40CBF4971AF8038E009D40D8 /* LightKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightKit.h; sourceTree = "<group>"; };
-		40CBF4991AF8038E009D40D8 /* LightKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LightKit.m; sourceTree = "<group>"; };
 		40CBF49F1AF8038E009D40D8 /* LightKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40CBF4A51AF8038E009D40D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40CBF4AE1AF8039B009D40D8 /* LightKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LightKit-Bridging-Header.h"; sourceTree = "<group>"; };
+		40CBF4AF1AF8039C009D40D8 /* LMUController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMUController.swift; sourceTree = "<group>"; };
+		40E197A51AF813BD0030F05A /* LightKitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LightKitTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		40E197A81AF813EB0030F05A /* LMUControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMUControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +72,8 @@
 		40CBF4961AF8038E009D40D8 /* LightKit */ = {
 			isa = PBXGroup;
 			children = (
-				40CBF4971AF8038E009D40D8 /* LightKit.h */,
-				40CBF4991AF8038E009D40D8 /* LightKit.m */,
+				40CBF4AF1AF8039C009D40D8 /* LMUController.swift */,
+				40CBF4AE1AF8039B009D40D8 /* LightKit-Bridging-Header.h */,
 			);
 			path = LightKit;
 			sourceTree = "<group>";
@@ -80,6 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				40CBF4A41AF8038E009D40D8 /* Supporting Files */,
+				40E197A51AF813BD0030F05A /* LightKitTests-Bridging-Header.h */,
+				40E197A81AF813EB0030F05A /* LMUControllerTests.swift */,
 			);
 			path = LightKitTests;
 			sourceTree = "<group>";
@@ -99,7 +103,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40CBF4981AF8038E009D40D8 /* LightKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,7 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40CBF49A1AF8038E009D40D8 /* LightKit.m in Sources */,
+				40CBF4B01AF8039C009D40D8 /* LMUController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40E197A91AF813EB0030F05A /* LMUControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,26 +297,34 @@
 		40CBF4A91AF8038E009D40D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LightKit/LightKit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		40CBF4AA1AF8038E009D40D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LightKit/LightKit-Bridging-Header.h";
 			};
 			name = Release;
 		};
 		40CBF4AC1AF8038E009D40D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -325,12 +337,15 @@
 				INFOPLIST_FILE = LightKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LightKitTests/LightKitTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		40CBF4AD1AF8038E009D40D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -339,6 +354,7 @@
 				INFOPLIST_FILE = LightKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LightKitTests/LightKitTests-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -361,6 +377,7 @@
 				40CBF4AA1AF8038E009D40D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		40CBF4AB1AF8038E009D40D8 /* Build configuration list for PBXNativeTarget "LightKitTests" */ = {
 			isa = XCConfigurationList;
@@ -369,6 +386,7 @@
 				40CBF4AD1AF8038E009D40D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
