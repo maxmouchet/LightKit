@@ -38,13 +38,18 @@ import IOKit
 import CoreGraphics
 
 public class LMUController {
-    var dataPort: io_connect_t = 0
+    private var dataPort: io_connect_t = 0
     
     private let kGetSensorReadingID: UInt32 = 0 // getSensorReading(int *, int *)
     private let kGetLEDBrightnessID: UInt32 = 1 // getLEDBrightness(int, int *)
     private let kSetLEDBrightnessID: UInt32 = 2 // setLEDBrightness(int, int, int *)
     private let kSetLEDFadeID: UInt32 = 3 // setLEDFade(int, int, int, int *)
     
+    /**
+    Initialize the connection to the LMU controller.
+    
+    :returns: Nil if it failed.
+    */
     public init?() {
         let serviceObject = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("AppleLMUController").takeUnretainedValue())
         
@@ -84,7 +89,11 @@ public class LMUController {
         }
     }
     
-    // TODO
+    /**
+    Get MacBook keyboard backlight brightness.
+    
+    :returns: A value between 0 and 1. Nil if it failed.
+    */
     public var keyboardBrightness: Float? {
         get {
             let inputs = [UInt64(0)]
@@ -101,6 +110,8 @@ public class LMUController {
     // TODO
     public var lightSensors: LightSensors? {
         get {
+            let outputs = callScalarMethod(kGetSensorReadingID, inputs: [UInt64]())
+            println(outputs)
             return LightSensors(left: 0, right: 0)
         }
     }
@@ -115,6 +126,13 @@ public class LMUController {
         return nil
     }
     
+    /**
+    Set MacBook keyboard backlight brightness.
+
+    :param: brightness A value between 0 and 1.
+    
+    :returns: The new brightness value that has been set. Nil if it failed.
+    */
     public func setKeyboardBrightness(brightness: Float) -> Float? {
         let inputs = [UInt64(0), UInt64(brightness * 0xfff)]
         let outputs = callScalarMethod(kSetLEDBrightnessID, inputs: inputs)
@@ -133,7 +151,7 @@ public class LMUController {
         var outputCount = UInt32(1)
         var outputValues = UnsafeMutablePointer<UInt64>(malloc(1*sizeof(UInt64)))
         
-        let kr = IOConnectCallScalarMethod(dataPort, kSetLEDBrightnessID, inputValues, inputCount, outputValues, &outputCount)
+        let kr = IOConnectCallScalarMethod(dataPort, selector, inputValues, inputCount, outputValues, &outputCount)
         
         var outputs = [UInt64]()
         for i in 0..<outputCount {
