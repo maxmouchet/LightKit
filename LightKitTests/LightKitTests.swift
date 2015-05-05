@@ -11,7 +11,7 @@ import Darwin
 import XCTest
 import LightKit
 
-class LMUControllerTests: XCTestCase {
+class LightKitTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
