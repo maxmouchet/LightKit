@@ -37,7 +37,7 @@
 import IOKit
 import CoreGraphics
 
-public class LMUController {
+public class LightKit {
     private var dataPort: io_connect_t = 0
     
     private let kGetSensorReadingID: UInt32 = 0 // getSensorReading(int *, int *)
@@ -46,7 +46,7 @@ public class LMUController {
     private let kSetLEDFadeID: UInt32 = 3 // setLEDFade(int, int, int, int *)
     
     /**
-    Initialize the connection to the LMU controller.
+    Initialize LightKit.
     
     :returns: Nil if it failed.
     */

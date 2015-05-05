@@ -23,12 +23,12 @@ class LMUControllerTests: XCTestCase {
     }
     
     func testGetSetDisplayService() {
-        let lmu = LMUController()!
+        let lk = LightKit()!
         
         let expectedBrightness: Float = 0.8
-        lmu.setDisplayBrightness(0.8)
+        lk.setDisplayBrightness(0.8)
         
-        if let b = lmu.displayBrightness {
+        if let b = lk.displayBrightness {
             XCTAssertEqual(b, expectedBrightness, "Pass")
         } else {
             XCTFail("Unable to unwrap brightness.")
@@ -36,10 +36,10 @@ class LMUControllerTests: XCTestCase {
     }
 
     func testGetSetKeyboardBrightness() {
-        let lmu = LMUController()!
+        let lk = LightKit()!
         
-        let newBrightness = lmu.setKeyboardBrightness(0.8)
-        let brightness = lmu.keyboardBrightness
+        let newBrightness = lk.setKeyboardBrightness(0.8)
+        let brightness = lk.keyboardBrightness
         
         if let b = brightness, nb = newBrightness {
             XCTAssertEqual(b, nb, "Pass")

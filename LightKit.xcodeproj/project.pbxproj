@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		40CBF4A01AF8038E009D40D8 /* libLightKit.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CBF4941AF8038E009D40D8 /* libLightKit.dylib */; };
-		40CBF4B01AF8039C009D40D8 /* LMUController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CBF4AF1AF8039C009D40D8 /* LMUController.swift */; };
-		40E197A91AF813EB0030F05A /* LMUControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E197A81AF813EB0030F05A /* LMUControllerTests.swift */; };
+		40CBF4B01AF8039C009D40D8 /* LightKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CBF4AF1AF8039C009D40D8 /* LightKit.swift */; };
+		40E197A91AF813EB0030F05A /* LightKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E197A81AF813EB0030F05A /* LightKitTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,9 +27,9 @@
 		40CBF49F1AF8038E009D40D8 /* LightKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40CBF4A51AF8038E009D40D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40CBF4AE1AF8039B009D40D8 /* LightKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LightKit-Bridging-Header.h"; sourceTree = "<group>"; };
-		40CBF4AF1AF8039C009D40D8 /* LMUController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMUController.swift; sourceTree = "<group>"; };
+		40CBF4AF1AF8039C009D40D8 /* LightKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightKit.swift; sourceTree = "<group>"; };
 		40E197A51AF813BD0030F05A /* LightKitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LightKitTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		40E197A81AF813EB0030F05A /* LMUControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMUControllerTests.swift; sourceTree = "<group>"; };
+		40E197A81AF813EB0030F05A /* LightKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightKitTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +72,7 @@
 		40CBF4961AF8038E009D40D8 /* LightKit */ = {
 			isa = PBXGroup;
 			children = (
-				40CBF4AF1AF8039C009D40D8 /* LMUController.swift */,
+				40CBF4AF1AF8039C009D40D8 /* LightKit.swift */,
 				40CBF4AE1AF8039B009D40D8 /* LightKit-Bridging-Header.h */,
 			);
 			path = LightKit;
@@ -83,7 +83,7 @@
 			children = (
 				40CBF4A41AF8038E009D40D8 /* Supporting Files */,
 				40E197A51AF813BD0030F05A /* LightKitTests-Bridging-Header.h */,
-				40E197A81AF813EB0030F05A /* LMUControllerTests.swift */,
+				40E197A81AF813EB0030F05A /* LightKitTests.swift */,
 			);
 			path = LightKitTests;
 			sourceTree = "<group>";
@@ -194,7 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40CBF4B01AF8039C009D40D8 /* LMUController.swift in Sources */,
+				40CBF4B01AF8039C009D40D8 /* LightKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40E197A91AF813EB0030F05A /* LMUControllerTests.swift in Sources */,
+				40E197A91AF813EB0030F05A /* LightKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
