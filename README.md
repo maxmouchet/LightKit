@@ -1,4 +1,6 @@
 # LightKit
+[![License](http://img.shields.io/badge/license-BSD-blue.svg?style=flat-square)](https://github.com/maxmouchet/miniRAK/blob/master/LICENSE)
+
 Access the ambient light sensors, and control MacBook's display & keyboard brightness in Swift.
 
 ![LightKit](http://cdn.makeagif.com/media/5-05-2015/muJWM6.gif)
