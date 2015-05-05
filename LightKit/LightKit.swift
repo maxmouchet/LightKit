@@ -54,28 +54,34 @@ public class LightKit {
         if !initLMUService() { return nil }
     }
     
-    private func initLMUService() -> Bool {
-        let serviceObject = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("AppleLMUController").takeUnretainedValue())
-        
-        if serviceObject == 0 {
-            println("Failed to find ambient light sensor")
-            return false
-        }
-        
-        let kr = IOServiceOpen(serviceObject, mach_task_self_, 0, &dataPort)
-        IOObjectRelease(serviceObject)
-        
-        if kr != KERN_SUCCESS {
-            println("Failed to open IOService object")
-            return false
-        }
-        
-        return true
-    }
+    /**
+    Get MacBook display backlight brightness.
     
-    // TODO
+    :returns: A value between 0 and 1. Nil if it failed.
+    */
     public var displayBrightness: Float? {
         get {
+            var iterator: io_iterator_t = 0
+            
+            let result = IOServiceGetMatchingServices(kIOMasterPortDefault,
+                IOServiceMatching("IODisplayConnect").takeUnretainedValue(),
+                &iterator)
+            
+            if result == kIOReturnSuccess {
+                var service: io_service_t = 1
+                
+                while true {
+                    service = IOIteratorNext(iterator)
+                    
+                    if service == 0 { break; }
+                    
+                    var brightness: Float = 0
+                    IODisplayGetFloatParameter(service, UInt32(0), kIODisplayBrightnessKey as! CFString, &brightness)
+                    IOObjectRelease(service)
+                    return brightness
+                }
+            }
+            
             return nil
         }
     }
@@ -162,6 +168,31 @@ public class LightKit {
         return nil
     }
     
+    /**
+    Open a connection to the LMU controller.
+    */
+    private func initLMUService() -> Bool {
+        let serviceObject = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("AppleLMUController").takeUnretainedValue())
+        
+        if serviceObject == 0 {
+            println("Failed to find ambient light sensor")
+            return false
+        }
+        
+        let kr = IOServiceOpen(serviceObject, mach_task_self_, 0, &dataPort)
+        IOObjectRelease(serviceObject)
+        
+        if kr != KERN_SUCCESS {
+            println("Failed to open IOService object")
+            return false
+        }
+        
+        return true
+    }
+    
+    /**
+    Wrapper for IOConnectCallScalarMethod.
+    */
     private func callScalarMethod(selector: UInt32, inputs: [UInt64]) -> [UInt64]? {
         let inputCount = UInt32(inputs.count)
         let inputValues = UnsafeMutablePointer<UInt64>(inputs)

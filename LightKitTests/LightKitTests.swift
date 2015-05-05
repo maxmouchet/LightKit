@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Darwin
 import XCTest
 import LightKit
 
@@ -28,8 +29,11 @@ class LMUControllerTests: XCTestCase {
         let expectedBrightness: Float = 0.8
         lk.setDisplayBrightness(0.8)
         
+        // Wait for backlight to reach its level
+        sleep(1)
+        
         if let b = lk.displayBrightness {
-            XCTAssertEqual(b, expectedBrightness, "Pass")
+            XCTAssertEqualWithAccuracy(b, expectedBrightness, 0.1, "Pass")
         } else {
             XCTFail("Unable to unwrap brightness.")
         }
