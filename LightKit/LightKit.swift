@@ -35,6 +35,7 @@
 //
 
 import IOKit
+import Foundation
 import CoreGraphics
 
 public class LightKit {
@@ -76,7 +77,7 @@ public class LightKit {
                     if service == 0 { break; }
                     
                     var brightness: Float = 0
-                    IODisplayGetFloatParameter(service, UInt32(0), kIODisplayBrightnessKey as! CFString, &brightness)
+                    IODisplayGetFloatParameter(service, UInt32(0), kIODisplayBrightnessKey, &brightness)
                     IOObjectRelease(service)
                     return brightness
                 }
@@ -94,7 +95,7 @@ public class LightKit {
     public var keyboardBrightness: Float? {
         get {
             let inputs = [UInt64(0)]
-            let outputs = callScalarMethod(kGetLEDBrightnessID, inputs: inputs)
+            let outputs = callScalarMethod(kGetLEDBrightnessID, inputs: inputs, outputCount: 1)
             
             if let a = outputs?.first{
                 return Float(a / 0xfff)
@@ -104,12 +105,20 @@ public class LightKit {
         }
     }
     
-    // TODO
+    /**
+    Get MacBook ambient light sensors values.
+    
+    :returns: The readings from the sensors. Nil if it failed.
+    */
     public var lightSensors: LightSensors? {
         get {
-            let outputs = callScalarMethod(kGetSensorReadingID, inputs: [UInt64]())
-            println(outputs)
-            return LightSensors(left: 0, right: 0)
+            let outputs = callScalarMethod(kGetSensorReadingID, inputs: [UInt64](), outputCount: 2)
+            
+            if let left = outputs?.first, right = outputs?.last {
+                return LightSensors(left: Float(left / 2000), right: Float(right / 2000))
+            }
+            
+            return nil
         }
     }
     
@@ -135,7 +144,7 @@ public class LightKit {
                 
                 if service == 0 { break; }
                 
-                IODisplaySetFloatParameter(service, UInt32(0), kIODisplayBrightnessKey as! CFString, brightness)
+                IODisplaySetFloatParameter(service, UInt32(0), kIODisplayBrightnessKey, brightness)
                 IOObjectRelease(service)
             }
         } else {
@@ -145,9 +154,23 @@ public class LightKit {
         return true
     }
     
-    // TODO
-    public func setDisplayWake(wake: Bool) -> Bool? {
-        return nil
+    /**
+    Set MacBook display power status.
+    
+    :param: on Whether the display should be on or off.
+    
+    :returns: True if it succeeded. False if it failed.
+    */
+    public func setDisplayPower(on: Bool) -> Bool {
+        let entry = IORegistryEntryFromPath(kIOMasterPortDefault, "IOService:/IOResources/IODisplayWrangler")
+        
+        if entry != 0 {
+            IORegistryEntrySetCFProperty(entry, "IORequestIdle", on ? kCFBooleanFalse : kCFBooleanTrue)
+            IOObjectRelease(entry)
+            return true
+        }
+        
+        return false
     }
     
     /**
@@ -159,7 +182,7 @@ public class LightKit {
     */
     public func setKeyboardBrightness(brightness: Float) -> Float? {
         let inputs = [UInt64(0), UInt64(brightness * 0xfff)]
-        let outputs = callScalarMethod(kSetLEDBrightnessID, inputs: inputs)
+        let outputs = callScalarMethod(kSetLEDBrightnessID, inputs: inputs, outputCount: 1)
         
         if let a = outputs?.first{
             return Float(a / 0xfff)
@@ -193,11 +216,11 @@ public class LightKit {
     /**
     Wrapper for IOConnectCallScalarMethod.
     */
-    private func callScalarMethod(selector: UInt32, inputs: [UInt64]) -> [UInt64]? {
+    private func callScalarMethod(selector: UInt32, inputs: [UInt64], outputCount: Int) -> [UInt64]? {
         let inputCount = UInt32(inputs.count)
         let inputValues = UnsafeMutablePointer<UInt64>(inputs)
         
-        var outputCount = UInt32(1)
+        var outputCount = UInt32(outputCount)
         var outputValues = UnsafeMutablePointer<UInt64>(malloc(1*sizeof(UInt64)))
         
         let kr = IOConnectCallScalarMethod(dataPort, selector, inputValues, inputCount, outputValues, &outputCount)

@@ -15,15 +15,26 @@ class LMUControllerTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
-    func testGetSetDisplayService() {
+    func testGetSetKeyboardBrightness() {
+        let lk = LightKit()!
+        
+        let newBrightness = lk.setKeyboardBrightness(0.8)
+        let brightness = lk.keyboardBrightness
+        
+        if let b = brightness, nb = newBrightness {
+            XCTAssertEqual(b, nb, "Pass")
+        } else {
+            XCTFail("Unable to unwrap brightness.")
+        }
+    }
+    
+    func testGetSetDisplayBrightness() {
         let lk = LightKit()!
         
         let expectedBrightness: Float = 0.8
@@ -38,18 +49,24 @@ class LMUControllerTests: XCTestCase {
             XCTFail("Unable to unwrap brightness.")
         }
     }
-
-    func testGetSetKeyboardBrightness() {
+    
+    func testSetDisplayPower() {
         let lk = LightKit()!
         
-        let newBrightness = lk.setKeyboardBrightness(0.8)
-        let brightness = lk.keyboardBrightness
+        // Put display to sleep
+        XCTAssertTrue(lk.setDisplayPower(false), "Pass")
         
-        if let b = brightness, nb = newBrightness {
-            XCTAssertEqual(b, nb, "Pass")
-        } else {
-            XCTFail("Unable to unwrap brightness.")
+        sleep(1)
+        
+        // Wake up display
+        XCTAssertTrue(lk.setDisplayPower(true), "Pass")
+    }
+    
+    func testGetLightSensors() {
+        let lk = LightKit()!
+        
+        if lk.lightSensors == nil {
+            XCTFail("Unable to unwrap light sensors.")
         }
     }
-
 }
