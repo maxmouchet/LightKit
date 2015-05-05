@@ -51,11 +51,15 @@ public class LMUController {
     :returns: Nil if it failed.
     */
     public init?() {
+        if !initLMUService() { return nil }
+    }
+    
+    private func initLMUService() -> Bool {
         let serviceObject = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("AppleLMUController").takeUnretainedValue())
         
         if serviceObject == 0 {
             println("Failed to find ambient light sensor")
-            return nil
+            return false
         }
         
         let kr = IOServiceOpen(serviceObject, mach_task_self_, 0, &dataPort)
@@ -63,28 +67,15 @@ public class LMUController {
         
         if kr != KERN_SUCCESS {
             println("Failed to open IOService object")
-            return nil
+            return false
         }
+        
+        return true
     }
     
     // TODO
     public var displayBrightness: Float? {
         get {
-            //            let service = IOServicePortFromCGDisplayID(CGMainDisplayID())
-            //            var brightness = HUGE
-            //            CGDisplayErr      dErr;
-            //            io_service_t      service;
-            //            CGDirectDisplayID targetDisplay;
-            //
-            //            CFStringRef key = CFSTR(kIODisplayBrightnessKey);
-            //            float brightness = HUGE_VALF;
-            //
-            //            targetDisplay = CGMainDisplayID();
-            //            service = CGDisplayIOServicePort(targetDisplay);
-            //
-            //            dErr = IODisplayGetFloatParameter(service, kNilOptions, key, &brightness);
-            //
-            //            return brightness;
             return nil
         }
     }
@@ -116,9 +107,36 @@ public class LMUController {
         }
     }
     
-    // TODO
-    public func setDisplayBrightness(brightness: Float) -> Float? {
-        return nil
+    /**
+    Set MacBook display backlight brightness.
+    
+    :param: brightness A value between 0 and 1.
+    
+    :returns: True if it succeeded. False if it failed.
+    */
+    public func setDisplayBrightness(brightness: Float) -> Bool {
+        var iterator: io_iterator_t = 0
+        
+        let result = IOServiceGetMatchingServices(kIOMasterPortDefault,
+            IOServiceMatching("IODisplayConnect").takeUnretainedValue(),
+            &iterator)
+        
+        if result == kIOReturnSuccess {
+            var service: io_service_t = 1
+            
+            while true {
+                service = IOIteratorNext(iterator)
+                
+                if service == 0 { break; }
+                
+                IODisplaySetFloatParameter(service, UInt32(0), kIODisplayBrightnessKey as! CFString, brightness)
+                IOObjectRelease(service)
+            }
+        } else {
+            return false
+        }
+        
+        return true
     }
     
     // TODO
@@ -128,7 +146,7 @@ public class LMUController {
     
     /**
     Set MacBook keyboard backlight brightness.
-
+    
     :param: brightness A value between 0 and 1.
     
     :returns: The new brightness value that has been set. Nil if it failed.
@@ -162,6 +180,7 @@ public class LMUController {
     }
 }
 
+/// Readings from the ambient light sensor
 public struct LightSensors {
     let left, right: Float
 }

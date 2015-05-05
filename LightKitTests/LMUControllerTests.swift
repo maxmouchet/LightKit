@@ -21,6 +21,19 @@ class LMUControllerTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+    
+    func testGetSetDisplayService() {
+        let lmu = LMUController()!
+        
+        let expectedBrightness: Float = 0.8
+        lmu.setDisplayBrightness(0.8)
+        
+        if let b = lmu.displayBrightness {
+            XCTAssertEqual(b, expectedBrightness, "Pass")
+        } else {
+            XCTFail("Unable to unwrap brightness.")
+        }
+    }
 
     func testGetSetKeyboardBrightness() {
         let lmu = LMUController()!
