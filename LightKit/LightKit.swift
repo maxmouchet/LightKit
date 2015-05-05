@@ -5,7 +5,7 @@
 //  Created by Max Mouchet on 04/05/15.
 //
 //  Ported from https://github.com/samnung/maclight/
-//  See licence below.
+//  See license below.
 //
 
 //
