@@ -236,5 +236,5 @@ public class LightKit {
 
 /// Readings from the ambient light sensor
 public struct LightSensors {
-    let left, right: Float
+    public let left, right: Float
 }
