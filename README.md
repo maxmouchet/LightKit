@@ -20,8 +20,8 @@ let lk = LightKit()! // May be nil if it failed to open I/Os.
 #### Ambient light sensors
 ```swift
 let lightSensorsReadings = lk.lightSensors
-println("Left sensor: \(lightSensorsReadings.left).")
-println("Right sensor: \(lightSensorsReadings.right).")
+println("Left sensor: \(lightSensorsReadings?.left).")
+println("Right sensor: \(lightSensorsReadings?.right).")
 ```
 
 #### Display
