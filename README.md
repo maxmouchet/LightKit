@@ -1,5 +1,6 @@
 # LightKit
 [![License](http://img.shields.io/badge/license-BSD-blue.svg?style=flat-square)](https://github.com/maxmouchet/LightKit/blob/master/LICENSE)
+[![CocoaPods compatible](https://img.shields.io/cocoapods/v/LightKit.svg?style=flat-square)](#)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](#)
 
 Access the ambient light sensors, and control MacBook's display & keyboard brightness in Swift.
@@ -9,6 +10,14 @@ Access the ambient light sensors, and control MacBook's display & keyboard brigh
 **Warning:** While it may seems safe to play with the backlight, I am not responsible for any damages made to a computer using this code.
 
 ## Installation
+
+```bash
+# CocoaPods
+pod "LightKit"
+
+# Carthage
+github "maxmouchet/LightKit"
+```
 
 ## Usage
 ```swift
