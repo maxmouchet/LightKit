@@ -30,13 +30,13 @@ let lk = LightKit()! // May be nil if it failed to open I/Os.
 #### Ambient light sensors
 ```swift
 let lightSensorsReadings = lk.lightSensors
-println("Left sensor: \(lightSensorsReadings?.left).")
-println("Right sensor: \(lightSensorsReadings?.right).")
+print("Left sensor: \(lightSensorsReadings?.left).")
+print("Right sensor: \(lightSensorsReadings?.right).")
 ```
 
 #### Display
 ```swift
-println("Display brightness is \(lk.displayBrightness)")
+print("Display brightness is \(lk.displayBrightness)")
 lk.setDisplayBrightness(0.8) // A value between 0 and 1.
 ```
 
@@ -47,6 +47,6 @@ lk.setDisplayPower(true) // Wake up display
 
 #### Keyboard
 ```swift
-println("Keyboard brightness is \(lk.keyboardBrightness)")
+print("Keyboard brightness is \(lk.keyboardBrightness)")
 lk.setKeyboardBrightness(0.8) // A value between 0 and 1.
 ```
