@@ -7,7 +7,7 @@ Access the ambient light sensors, and control MacBook's display & keyboard brigh
 
 ![LightKit](http://cdn.makeagif.com/media/5-05-2015/muJWM6.gif)
 
-**Warning:** While it may seems safe to play with the backlight, I am not responsible for any damages made to a computer using this code.
+**Warning:** While it should be safe to play with the backlight, I am not responsible for any damages made to a computer using this code.
 
 ## Installation
 
