@@ -7,115 +7,110 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		40CBF4A01AF8038E009D40D8 /* libLightKit.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CBF4941AF8038E009D40D8 /* libLightKit.dylib */; };
-		40CBF4B01AF8039C009D40D8 /* LightKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CBF4AF1AF8039C009D40D8 /* LightKit.swift */; };
-		40E197A91AF813EB0030F05A /* LightKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E197A81AF813EB0030F05A /* LightKitTests.swift */; };
+		40B6B6431D4A5C3C00F48558 /* LightKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 40B6B6421D4A5C3C00F48558 /* LightKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40B6B64A1D4A5C3C00F48558 /* LightKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40B6B63F1D4A5C3C00F48558 /* LightKit.framework */; };
+		40B6B64F1D4A5C3C00F48558 /* LightKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B6B64E1D4A5C3C00F48558 /* LightKitTests.swift */; };
+		40B6B65A1D4A5C5200F48558 /* LightKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B6B6591D4A5C5200F48558 /* LightKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		40CBF4A11AF8038E009D40D8 /* PBXContainerItemProxy */ = {
+		40B6B64B1D4A5C3C00F48558 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 40CBF48C1AF8038E009D40D8 /* Project object */;
+			containerPortal = 40B6B6361D4A5C3C00F48558 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 40CBF4931AF8038E009D40D8;
+			remoteGlobalIDString = 40B6B63E1D4A5C3C00F48558;
 			remoteInfo = LightKit;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		40CBF4941AF8038E009D40D8 /* libLightKit.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libLightKit.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		40CBF49F1AF8038E009D40D8 /* LightKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		40CBF4A51AF8038E009D40D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		40CBF4AE1AF8039B009D40D8 /* LightKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LightKit-Bridging-Header.h"; sourceTree = "<group>"; };
-		40CBF4AF1AF8039C009D40D8 /* LightKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightKit.swift; sourceTree = "<group>"; };
-		40E197A51AF813BD0030F05A /* LightKitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LightKitTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		40E197A81AF813EB0030F05A /* LightKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightKitTests.swift; sourceTree = "<group>"; };
+		40B6B63F1D4A5C3C00F48558 /* LightKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LightKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40B6B6421D4A5C3C00F48558 /* LightKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightKit.h; sourceTree = "<group>"; };
+		40B6B6441D4A5C3C00F48558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40B6B6491D4A5C3C00F48558 /* LightKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		40B6B64E1D4A5C3C00F48558 /* LightKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightKitTests.swift; sourceTree = "<group>"; };
+		40B6B6501D4A5C3C00F48558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40B6B6591D4A5C5200F48558 /* LightKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightKit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		40CBF4911AF8038E009D40D8 /* Frameworks */ = {
+		40B6B63B1D4A5C3C00F48558 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		40CBF49C1AF8038E009D40D8 /* Frameworks */ = {
+		40B6B6461D4A5C3C00F48558 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40CBF4A01AF8038E009D40D8 /* libLightKit.dylib in Frameworks */,
+				40B6B64A1D4A5C3C00F48558 /* LightKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		40CBF48B1AF8038E009D40D8 = {
+		40B6B6351D4A5C3C00F48558 = {
 			isa = PBXGroup;
 			children = (
-				40CBF4961AF8038E009D40D8 /* LightKit */,
-				40CBF4A31AF8038E009D40D8 /* LightKitTests */,
-				40CBF4951AF8038E009D40D8 /* Products */,
+				40B6B6411D4A5C3C00F48558 /* LightKit */,
+				40B6B64D1D4A5C3C00F48558 /* LightKitTests */,
+				40B6B6401D4A5C3C00F48558 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		40CBF4951AF8038E009D40D8 /* Products */ = {
+		40B6B6401D4A5C3C00F48558 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				40CBF4941AF8038E009D40D8 /* libLightKit.dylib */,
-				40CBF49F1AF8038E009D40D8 /* LightKitTests.xctest */,
+				40B6B63F1D4A5C3C00F48558 /* LightKit.framework */,
+				40B6B6491D4A5C3C00F48558 /* LightKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		40CBF4961AF8038E009D40D8 /* LightKit */ = {
+		40B6B6411D4A5C3C00F48558 /* LightKit */ = {
 			isa = PBXGroup;
 			children = (
-				40CBF4AF1AF8039C009D40D8 /* LightKit.swift */,
-				40CBF4AE1AF8039B009D40D8 /* LightKit-Bridging-Header.h */,
+				40B6B6421D4A5C3C00F48558 /* LightKit.h */,
+				40B6B6441D4A5C3C00F48558 /* Info.plist */,
+				40B6B6591D4A5C5200F48558 /* LightKit.swift */,
 			);
 			path = LightKit;
 			sourceTree = "<group>";
 		};
-		40CBF4A31AF8038E009D40D8 /* LightKitTests */ = {
+		40B6B64D1D4A5C3C00F48558 /* LightKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				40CBF4A41AF8038E009D40D8 /* Supporting Files */,
-				40E197A51AF813BD0030F05A /* LightKitTests-Bridging-Header.h */,
-				40E197A81AF813EB0030F05A /* LightKitTests.swift */,
+				40B6B64E1D4A5C3C00F48558 /* LightKitTests.swift */,
+				40B6B6501D4A5C3C00F48558 /* Info.plist */,
 			);
 			path = LightKitTests;
-			sourceTree = "<group>";
-		};
-		40CBF4A41AF8038E009D40D8 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				40CBF4A51AF8038E009D40D8 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		40CBF4921AF8038E009D40D8 /* Headers */ = {
+		40B6B63C1D4A5C3C00F48558 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40B6B6431D4A5C3C00F48558 /* LightKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		40CBF4931AF8038E009D40D8 /* LightKit */ = {
+		40B6B63E1D4A5C3C00F48558 /* LightKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 40CBF4A81AF8038E009D40D8 /* Build configuration list for PBXNativeTarget "LightKit" */;
+			buildConfigurationList = 40B6B6531D4A5C3C00F48558 /* Build configuration list for PBXNativeTarget "LightKit" */;
 			buildPhases = (
-				40CBF4901AF8038E009D40D8 /* Sources */,
-				40CBF4911AF8038E009D40D8 /* Frameworks */,
-				40CBF4921AF8038E009D40D8 /* Headers */,
+				40B6B63A1D4A5C3C00F48558 /* Sources */,
+				40B6B63B1D4A5C3C00F48558 /* Frameworks */,
+				40B6B63C1D4A5C3C00F48558 /* Headers */,
+				40B6B63D1D4A5C3C00F48558 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -123,66 +118,72 @@
 			);
 			name = LightKit;
 			productName = LightKit;
-			productReference = 40CBF4941AF8038E009D40D8 /* libLightKit.dylib */;
-			productType = "com.apple.product-type.library.dynamic";
+			productReference = 40B6B63F1D4A5C3C00F48558 /* LightKit.framework */;
+			productType = "com.apple.product-type.framework";
 		};
-		40CBF49E1AF8038E009D40D8 /* LightKitTests */ = {
+		40B6B6481D4A5C3C00F48558 /* LightKitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 40CBF4AB1AF8038E009D40D8 /* Build configuration list for PBXNativeTarget "LightKitTests" */;
+			buildConfigurationList = 40B6B6561D4A5C3C00F48558 /* Build configuration list for PBXNativeTarget "LightKitTests" */;
 			buildPhases = (
-				40CBF49B1AF8038E009D40D8 /* Sources */,
-				40CBF49C1AF8038E009D40D8 /* Frameworks */,
-				40CBF49D1AF8038E009D40D8 /* Resources */,
+				40B6B6451D4A5C3C00F48558 /* Sources */,
+				40B6B6461D4A5C3C00F48558 /* Frameworks */,
+				40B6B6471D4A5C3C00F48558 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				40CBF4A21AF8038E009D40D8 /* PBXTargetDependency */,
+				40B6B64C1D4A5C3C00F48558 /* PBXTargetDependency */,
 			);
 			name = LightKitTests;
 			productName = LightKitTests;
-			productReference = 40CBF49F1AF8038E009D40D8 /* LightKitTests.xctest */;
+			productReference = 40B6B6491D4A5C3C00F48558 /* LightKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		40CBF48C1AF8038E009D40D8 /* Project object */ = {
+		40B6B6361D4A5C3C00F48558 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftMigration = 0730;
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Maxime Mouchet";
 				TargetAttributes = {
-					40CBF4931AF8038E009D40D8 = {
-						CreatedOnToolsVersion = 6.3.1;
+					40B6B63E1D4A5C3C00F48558 = {
+						CreatedOnToolsVersion = 7.3.1;
 					};
-					40CBF49E1AF8038E009D40D8 = {
-						CreatedOnToolsVersion = 6.3.1;
+					40B6B6481D4A5C3C00F48558 = {
+						CreatedOnToolsVersion = 7.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 40CBF48F1AF8038E009D40D8 /* Build configuration list for PBXProject "LightKit" */;
+			buildConfigurationList = 40B6B6391D4A5C3C00F48558 /* Build configuration list for PBXProject "LightKit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 40CBF48B1AF8038E009D40D8;
-			productRefGroup = 40CBF4951AF8038E009D40D8 /* Products */;
+			mainGroup = 40B6B6351D4A5C3C00F48558;
+			productRefGroup = 40B6B6401D4A5C3C00F48558 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				40CBF4931AF8038E009D40D8 /* LightKit */,
-				40CBF49E1AF8038E009D40D8 /* LightKitTests */,
+				40B6B63E1D4A5C3C00F48558 /* LightKit */,
+				40B6B6481D4A5C3C00F48558 /* LightKitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		40CBF49D1AF8038E009D40D8 /* Resources */ = {
+		40B6B63D1D4A5C3C00F48558 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40B6B6471D4A5C3C00F48558 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -192,37 +193,38 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		40CBF4901AF8038E009D40D8 /* Sources */ = {
+		40B6B63A1D4A5C3C00F48558 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40CBF4B01AF8039C009D40D8 /* LightKit.swift in Sources */,
+				40B6B65A1D4A5C5200F48558 /* LightKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		40CBF49B1AF8038E009D40D8 /* Sources */ = {
+		40B6B6451D4A5C3C00F48558 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40E197A91AF813EB0030F05A /* LightKitTests.swift in Sources */,
+				40B6B64F1D4A5C3C00F48558 /* LightKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		40CBF4A21AF8038E009D40D8 /* PBXTargetDependency */ = {
+		40B6B64C1D4A5C3C00F48558 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 40CBF4931AF8038E009D40D8 /* LightKit */;
-			targetProxy = 40CBF4A11AF8038E009D40D8 /* PBXContainerItemProxy */;
+			target = 40B6B63E1D4A5C3C00F48558 /* LightKit */;
+			targetProxy = 40B6B64B1D4A5C3C00F48558 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		40CBF4A61AF8038E009D40D8 /* Debug */ = {
+		40B6B6511D4A5C3C00F48558 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -236,7 +238,9 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -248,24 +252,27 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		40CBF4A71AF8038E009D40D8 /* Release */ = {
+		40B6B6521D4A5C3C00F48558 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -279,7 +286,9 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -291,111 +300,104 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		40CBF4A91AF8038E009D40D8 /* Debug */ = {
+		40B6B6541D4A5C3C00F48558 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				EXECUTABLE_PREFIX = lib;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = LightKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxmouchet.LightKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "LightKit/LightKit-Bridging-Header.h";
+				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		40CBF4AA1AF8038E009D40D8 /* Release */ = {
+		40B6B6551D4A5C3C00F48558 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				EXECUTABLE_PREFIX = lib;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = LightKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxmouchet.LightKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "LightKit/LightKit-Bridging-Header.h";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
-		40CBF4AC1AF8038E009D40D8 /* Debug */ = {
+		40B6B6571D4A5C3C00F48558 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = LightKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.maxmouchet.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxmouchet.LightKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "LightKitTests/LightKitTests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		40CBF4AD1AF8038E009D40D8 /* Release */ = {
+		40B6B6581D4A5C3C00F48558 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = LightKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.maxmouchet.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxmouchet.LightKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "LightKitTests/LightKitTests-Bridging-Header.h";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		40CBF48F1AF8038E009D40D8 /* Build configuration list for PBXProject "LightKit" */ = {
+		40B6B6391D4A5C3C00F48558 /* Build configuration list for PBXProject "LightKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				40CBF4A61AF8038E009D40D8 /* Debug */,
-				40CBF4A71AF8038E009D40D8 /* Release */,
+				40B6B6511D4A5C3C00F48558 /* Debug */,
+				40B6B6521D4A5C3C00F48558 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		40CBF4A81AF8038E009D40D8 /* Build configuration list for PBXNativeTarget "LightKit" */ = {
+		40B6B6531D4A5C3C00F48558 /* Build configuration list for PBXNativeTarget "LightKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				40CBF4A91AF8038E009D40D8 /* Debug */,
-				40CBF4AA1AF8038E009D40D8 /* Release */,
+				40B6B6541D4A5C3C00F48558 /* Debug */,
+				40B6B6551D4A5C3C00F48558 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-		40CBF4AB1AF8038E009D40D8 /* Build configuration list for PBXNativeTarget "LightKitTests" */ = {
+		40B6B6561D4A5C3C00F48558 /* Build configuration list for PBXNativeTarget "LightKitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				40CBF4AC1AF8038E009D40D8 /* Debug */,
-				40CBF4AD1AF8038E009D40D8 /* Release */,
+				40B6B6571D4A5C3C00F48558 /* Debug */,
+				40B6B6581D4A5C3C00F48558 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 40CBF48C1AF8038E009D40D8 /* Project object */;
+	rootObject = 40B6B6361D4A5C3C00F48558 /* Project object */;
 }

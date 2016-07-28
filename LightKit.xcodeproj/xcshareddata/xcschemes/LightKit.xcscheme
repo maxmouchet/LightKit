@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "40CBF4931AF8038E009D40D8"
-               BuildableName = "libLightKit.dylib"
+               BlueprintIdentifier = "40B6B63E1D4A5C3C00F48558"
+               BuildableName = "LightKit.framework"
                BlueprintName = "LightKit"
-               ReferencedContainer = "container:LightKit.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "40CBF49E1AF8038E009D40D8"
-               BuildableName = "LightKitTests.xctest"
-               BlueprintName = "LightKitTests"
                ReferencedContainer = "container:LightKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "40CBF49E1AF8038E009D40D8"
+               BlueprintIdentifier = "40B6B6481D4A5C3C00F48558"
                BuildableName = "LightKitTests.xctest"
                BlueprintName = "LightKitTests"
                ReferencedContainer = "container:LightKit.xcodeproj">
@@ -56,8 +42,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "40CBF4931AF8038E009D40D8"
-            BuildableName = "libLightKit.dylib"
+            BlueprintIdentifier = "40B6B63E1D4A5C3C00F48558"
+            BuildableName = "LightKit.framework"
             BlueprintName = "LightKit"
             ReferencedContainer = "container:LightKit.xcodeproj">
          </BuildableReference>
@@ -78,8 +64,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "40CBF4931AF8038E009D40D8"
-            BuildableName = "libLightKit.dylib"
+            BlueprintIdentifier = "40B6B63E1D4A5C3C00F48558"
+            BuildableName = "LightKit.framework"
             BlueprintName = "LightKit"
             ReferencedContainer = "container:LightKit.xcodeproj">
          </BuildableReference>
@@ -96,8 +82,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "40CBF4931AF8038E009D40D8"
-            BuildableName = "libLightKit.dylib"
+            BlueprintIdentifier = "40B6B63E1D4A5C3C00F48558"
+            BuildableName = "LightKit.framework"
             BlueprintName = "LightKit"
             ReferencedContainer = "container:LightKit.xcodeproj">
          </BuildableReference>
