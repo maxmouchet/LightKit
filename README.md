@@ -12,10 +12,10 @@ Access the ambient light sensors, and control MacBook's display & keyboard brigh
 ## Installation
 
 ```bash
-# CocoaPods
+# Podfile
 pod "LightKit"
 
-# Carthage
+# Cartfile
 github "maxmouchet/LightKit"
 ```
 
