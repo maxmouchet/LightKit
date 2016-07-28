@@ -44,7 +44,7 @@ class LightKitTests: XCTestCase {
         sleep(1)
         
         if let b = lk.displayBrightness {
-            XCTAssertEqualWithAccuracy(b, expectedBrightness, 0.1, "Pass")
+            XCTAssertEqualWithAccuracy(b, expectedBrightness, accuracy: 0.1, "Pass")
         } else {
             XCTFail("Unable to unwrap brightness.")
         }

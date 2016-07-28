@@ -49,7 +49,7 @@ public class LightKit {
     /**
     Initialize LightKit.
     
-    :returns: Nil if it failed.
+    - returns: Nil if it failed.
     */
     public init?() {
         if !initLMUService() { return nil }
@@ -58,16 +58,16 @@ public class LightKit {
     /**
     Get MacBook display backlight brightness.
     
-    :returns: A value between 0 and 1. Nil if it failed.
+    - returns: A value between 0 and 1. Nil if it failed.
     */
     public var displayBrightness: Float? {
         get {
             var iterator: io_iterator_t = 0
-            
+
             let result = IOServiceGetMatchingServices(kIOMasterPortDefault,
-                IOServiceMatching("IODisplayConnect").takeUnretainedValue(),
-                &iterator)
-            
+                                                      IOServiceMatching("IODisplayConnect"),
+                                                      &iterator)
+
             if result == kIOReturnSuccess {
                 var service: io_service_t = 1
                 
@@ -90,7 +90,7 @@ public class LightKit {
     /**
     Get MacBook keyboard backlight brightness.
     
-    :returns: A value between 0 and 1. Nil if it failed.
+    - returns: A value between 0 and 1. Nil if it failed.
     */
     public var keyboardBrightness: Float? {
         get {
@@ -108,7 +108,7 @@ public class LightKit {
     /**
     Get MacBook ambient light sensors values.
     
-    :returns: The readings from the sensors. Nil if it failed.
+    - returns: The readings from the sensors. Nil if it failed.
     */
     public var lightSensors: LightSensors? {
         get {
@@ -125,15 +125,15 @@ public class LightKit {
     /**
     Set MacBook display backlight brightness.
     
-    :param: brightness A value between 0 and 1.
+    - parameter brightness: A value between 0 and 1.
     
-    :returns: True if it succeeded. False if it failed.
+    - returns: True if it succeeded. False if it failed.
     */
     public func setDisplayBrightness(brightness: Float) -> Bool {
         var iterator: io_iterator_t = 0
         
         let result = IOServiceGetMatchingServices(kIOMasterPortDefault,
-            IOServiceMatching("IODisplayConnect").takeUnretainedValue(),
+            IOServiceMatching("IODisplayConnect"),
             &iterator)
         
         if result == kIOReturnSuccess {
@@ -157,9 +157,9 @@ public class LightKit {
     /**
     Set MacBook display power status.
     
-    :param: on Whether the display should be on or off.
+    - parameter on: Whether the display should be on or off.
     
-    :returns: True if it succeeded. False if it failed.
+    - returns: True if it succeeded. False if it failed.
     */
     public func setDisplayPower(on: Bool) -> Bool {
         let entry = IORegistryEntryFromPath(kIOMasterPortDefault, "IOService:/IOResources/IODisplayWrangler")
@@ -176,9 +176,9 @@ public class LightKit {
     /**
     Set MacBook keyboard backlight brightness.
     
-    :param: brightness A value between 0 and 1.
+    - parameter brightness: A value between 0 and 1.
     
-    :returns: The new brightness value that has been set. Nil if it failed.
+    - returns: The new brightness value that has been set. Nil if it failed.
     */
     public func setKeyboardBrightness(brightness: Float) -> Float? {
         let inputs = [UInt64(0), UInt64(brightness * 0xfff)]
@@ -195,10 +195,10 @@ public class LightKit {
     Open a connection to the LMU controller.
     */
     private func initLMUService() -> Bool {
-        let serviceObject = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("AppleLMUController").takeUnretainedValue())
+        let serviceObject = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("AppleLMUController"))
         
         if serviceObject == 0 {
-            println("Failed to find ambient light sensor")
+            print("Failed to find ambient light sensor")
             return false
         }
         
@@ -206,7 +206,7 @@ public class LightKit {
         IOObjectRelease(serviceObject)
         
         if kr != KERN_SUCCESS {
-            println("Failed to open IOService object")
+            print("Failed to open IOService object")
             return false
         }
         
@@ -221,7 +221,7 @@ public class LightKit {
         let inputValues = UnsafeMutablePointer<UInt64>(inputs)
         
         var outputCount = UInt32(outputCount)
-        var outputValues = UnsafeMutablePointer<UInt64>(malloc(1*sizeof(UInt64)))
+        let outputValues = UnsafeMutablePointer<UInt64>(malloc(1*sizeof(UInt64)))
         
         let kr = IOConnectCallScalarMethod(dataPort, selector, inputValues, inputCount, outputValues, &outputCount)
         
