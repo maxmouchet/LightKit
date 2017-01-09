@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "LightKit"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "MacBook Light Sensor and Display/Keyboard brightness control"
   s.homepage     = "https://github.com/maxmouchet/LightKit"
   s.license      = "BSD"
