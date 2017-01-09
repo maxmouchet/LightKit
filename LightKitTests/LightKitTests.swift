@@ -22,12 +22,12 @@ class LightKitTests: XCTestCase {
     }
 
     func testGetSetKeyboardBrightness() {
-        let lk = LightKit()!
+        let lk = LightKit()
 
-        let newBrightness = lk.setKeyboardBrightness(0.8)
-        let brightness = lk.keyboardBrightness
+        let newBrightness = lk?.setKeyboardBrightness(0.8)
+        let brightness = lk?.keyboardBrightness
 
-        if let b = brightness, nb = newBrightness {
+        if let b = brightness, let nb = newBrightness {
             XCTAssertEqual(b, nb, "Pass")
         } else {
             XCTFail("Unable to unwrap brightness.")
@@ -35,15 +35,15 @@ class LightKitTests: XCTestCase {
     }
 
     func testGetSetDisplayBrightness() {
-        let lk = LightKit()!
+        let lk = LightKit()
 
         let expectedBrightness: Float = 0.8
-        lk.setDisplayBrightness(0.8)
+        _ = lk?.setDisplayBrightness(0.8)
 
         // Wait for backlight to reach its level
         sleep(1)
 
-        if let b = lk.displayBrightness {
+        if let b = lk?.displayBrightness {
             XCTAssertEqualWithAccuracy(b, expectedBrightness, accuracy: 0.1, "Pass")
         } else {
             XCTFail("Unable to unwrap brightness.")
@@ -51,21 +51,21 @@ class LightKitTests: XCTestCase {
     }
 
     func testSetDisplayPower() {
-        let lk = LightKit()!
+        let lk = LightKit()
 
         // Put display to sleep
-        XCTAssertTrue(lk.setDisplayPower(false), "Pass")
+        XCTAssertTrue(lk!.setDisplayPower(false), "Pass")
 
         sleep(1)
 
         // Wake up display
-        XCTAssertTrue(lk.setDisplayPower(true), "Pass")
+        XCTAssertTrue(lk!.setDisplayPower(true), "Pass")
     }
     
     func testGetLightSensors() {
-        let lk = LightKit()!
+        let lk = LightKit()
         
-        if lk.lightSensors == nil {
+        if lk?.lightSensors == nil {
             XCTFail("Unable to unwrap light sensors.")
         }
     }

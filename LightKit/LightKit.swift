@@ -38,13 +38,13 @@ import IOKit
 import Foundation
 import CoreGraphics
 
-public class LightKit {
-    private var dataPort: io_connect_t = 0
+open class LightKit {
+    fileprivate var dataPort: io_connect_t = 0
 
-    private let kGetSensorReadingID: UInt32 = 0 // getSensorReading(int *, int *)
-    private let kGetLEDBrightnessID: UInt32 = 1 // getLEDBrightness(int, int *)
-    private let kSetLEDBrightnessID: UInt32 = 2 // setLEDBrightness(int, int, int *)
-    private let kSetLEDFadeID: UInt32 = 3 // setLEDFade(int, int, int, int *)
+    fileprivate let kGetSensorReadingID: UInt32 = 0 // getSensorReading(int *, int *)
+    fileprivate let kGetLEDBrightnessID: UInt32 = 1 // getLEDBrightness(int, int *)
+    fileprivate let kSetLEDBrightnessID: UInt32 = 2 // setLEDBrightness(int, int, int *)
+    fileprivate let kSetLEDFadeID: UInt32 = 3 // setLEDFade(int, int, int, int *)
 
     /**
      Initialize LightKit.
@@ -60,7 +60,7 @@ public class LightKit {
 
      - returns: A value between 0 and 1. Nil if it failed.
      */
-    public var displayBrightness: Float? {
+    open var displayBrightness: Float? {
         get {
             var iterator: io_iterator_t = 0
 
@@ -77,7 +77,7 @@ public class LightKit {
                     if service == 0 { break; }
 
                     var brightness: Float = 0
-                    IODisplayGetFloatParameter(service, UInt32(0), kIODisplayBrightnessKey, &brightness)
+                    IODisplayGetFloatParameter(service, UInt32(0), kIODisplayBrightnessKey as CFString!, &brightness)
                     IOObjectRelease(service)
                     return brightness
                 }
@@ -92,7 +92,7 @@ public class LightKit {
 
      - returns: A value between 0 and 1. Nil if it failed.
      */
-    public var keyboardBrightness: Float? {
+    open var keyboardBrightness: Float? {
         get {
             let inputs = [UInt64(0)]
             let outputs = callScalarMethod(kGetLEDBrightnessID, inputs: inputs, outputCount: 1)
@@ -110,11 +110,11 @@ public class LightKit {
 
      - returns: The readings from the sensors. Nil if it failed.
      */
-    public var lightSensors: LightSensors? {
+    open var lightSensors: LightSensors? {
         get {
             let outputs = callScalarMethod(kGetSensorReadingID, inputs: [UInt64](), outputCount: 2)
 
-            if let left = outputs?.first, right = outputs?.last {
+            if let left = outputs?.first, let right = outputs?.last {
                 return LightSensors(left: Float(left / 2000), right: Float(right / 2000))
             }
 
@@ -129,7 +129,7 @@ public class LightKit {
 
      - returns: True if it succeeded. False if it failed.
      */
-    public func setDisplayBrightness(brightness: Float) -> Bool {
+    open func setDisplayBrightness(_ brightness: Float) -> Bool {
         var iterator: io_iterator_t = 0
 
         let result = IOServiceGetMatchingServices(kIOMasterPortDefault,
@@ -144,7 +144,7 @@ public class LightKit {
 
                 if service == 0 { break; }
 
-                IODisplaySetFloatParameter(service, UInt32(0), kIODisplayBrightnessKey, brightness)
+                IODisplaySetFloatParameter(service, UInt32(0), kIODisplayBrightnessKey as CFString!, brightness)
                 IOObjectRelease(service)
             }
         } else {
@@ -161,11 +161,11 @@ public class LightKit {
 
      - returns: True if it succeeded. False if it failed.
      */
-    public func setDisplayPower(on: Bool) -> Bool {
+    open func setDisplayPower(_ on: Bool) -> Bool {
         let entry = IORegistryEntryFromPath(kIOMasterPortDefault, "IOService:/IOResources/IODisplayWrangler")
 
         if entry != 0 {
-            IORegistryEntrySetCFProperty(entry, "IORequestIdle", on ? kCFBooleanFalse : kCFBooleanTrue)
+            IORegistryEntrySetCFProperty(entry, "IORequestIdle" as CFString!, on ? kCFBooleanFalse : kCFBooleanTrue)
             IOObjectRelease(entry)
             return true
         }
@@ -180,7 +180,7 @@ public class LightKit {
 
      - returns: The new brightness value that has been set. Nil if it failed.
      */
-    public func setKeyboardBrightness(brightness: Float) -> Float? {
+    open func setKeyboardBrightness(_ brightness: Float) -> Float? {
         let inputs = [UInt64(0), UInt64(brightness * 0xfff)]
         let outputs = callScalarMethod(kSetLEDBrightnessID, inputs: inputs, outputCount: 1)
 
@@ -194,7 +194,7 @@ public class LightKit {
     /**
      Open a connection to the LMU controller.
      */
-    private func initLMUService() -> Bool {
+    fileprivate func initLMUService() -> Bool {
         let serviceObject = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("AppleLMUController"))
 
         if serviceObject == 0 {
@@ -216,20 +216,20 @@ public class LightKit {
     /**
      Wrapper for IOConnectCallScalarMethod.
      */
-    private func callScalarMethod(selector: UInt32, inputs: [UInt64], outputCount: Int) -> [UInt64]? {
+    fileprivate func callScalarMethod(_ selector: UInt32, inputs: [UInt64], outputCount: Int) -> [UInt64]? {
         let inputCount = UInt32(inputs.count)
-        let inputValues = UnsafeMutablePointer<UInt64>(inputs)
+        let inputValues = UnsafeMutablePointer<UInt64>(mutating: inputs)
         
         var outputCount = UInt32(outputCount)
-        let outputValues = UnsafeMutablePointer<UInt64>(malloc(1*sizeof(UInt64)))
-        
+        let outputValues = UnsafeMutablePointer<UInt64>.allocate(capacity: 1)
+
         let kr = IOConnectCallScalarMethod(dataPort, selector, inputValues, inputCount, outputValues, &outputCount)
-        
+
         var outputs = [UInt64]()
         for i in 0..<outputCount {
             outputs.append(outputValues[Int(i)])
         }
-        
+
         return kr == KERN_SUCCESS ? outputs : nil
     }
 }
